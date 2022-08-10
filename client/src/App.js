@@ -9,6 +9,7 @@ import backgroundImg from './img/background.jpg';
 import TableData from './components/Table';
 import Greet from './components/Greet';
 import ButtonComponent from './components/Button';
+import RaceResults from './components/RaceResults';
 
 const useStyles = makeStyles({
 	app: {
@@ -34,6 +35,7 @@ function App() {
 	const socket = io('http://localhost:3002/');
 
 	const [raceOn, setRaceOn] = useState(false);
+	const [openResults, setOpenResults] = useState(false);
 
 	const handleStart = () => {
 		setRaceOn(true);
@@ -42,6 +44,7 @@ function App() {
 	const handleStop = () => {
 		setRaceOn(false);
 		socket.disconnect();
+		setOpenResults(true);
 	};
 
 	const handleRaceOver = (arr) => {
@@ -65,7 +68,6 @@ function App() {
 				dispatch(
 					addData(quotes.sort((a, b) => b.distance - a.distance))
 				);
-				console.log(quotes);
 			});
 		}
 	}, [raceOn]);
@@ -79,6 +81,7 @@ function App() {
 				handleStop={handleStop}
 				raceOn={raceOn}
 			/>
+			<RaceResults open={openResults} setOpen={setOpenResults} />
 		</div>
 	);
 }
