@@ -21,6 +21,7 @@ const ButtonComponent = (props) => {
 	return (
 		<div className={classes.buttonBlock}>
 			<Button
+				data-testid='race-on-btn'
 				onClick={raceOn ? handleStop : handleStart}
 				variant='contained'
 				className={classes.button}
