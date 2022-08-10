@@ -35,9 +35,9 @@ const TableData = () => {
 	const classes = useStyles();
 
 	const tableHead = [
-		{ title: '№', align: 'left', className: 'classes.tableHead' },
-		{ title: 'Horse', align: 'left', className: 'classes.tableHead' },
-		{ title: 'Distance', align: 'center', className: 'classes.tableHead' },
+		{ title: '№', align: 'left' },
+		{ title: 'Horse', align: 'left' },
+		{ title: 'Distance', align: 'center' },
 	];
 
 	const horses = useSelector((state) => state.horses.data);
@@ -66,7 +66,7 @@ const TableData = () => {
 								<TableCell
 									key={cell.title}
 									align={cell.align}
-									className={cell.className}
+									className={classes.tableHead}
 								>
 									{cell.title}
 								</TableCell>

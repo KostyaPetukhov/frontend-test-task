@@ -20,23 +20,13 @@ const ButtonComponent = (props) => {
 
 	return (
 		<div className={classes.buttonBlock}>
-			{raceOn ? (
-				<Button
-					onClick={handleStop}
-					variant='contained'
-					className={classes.button}
-				>
-					Stop racing
-				</Button>
-			) : (
-				<Button
-					onClick={handleStart}
-					variant='contained'
-					className={classes.button}
-				>
-					Start racing
-				</Button>
-			)}
+			<Button
+				onClick={raceOn ? handleStop : handleStart}
+				variant='contained'
+				className={classes.button}
+			>
+				{raceOn ? 'Stop racing' : 'Start racing'}
+			</Button>
 		</div>
 	);
 };
