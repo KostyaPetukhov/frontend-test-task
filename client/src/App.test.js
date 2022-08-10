@@ -72,8 +72,11 @@ describe('handleRaceOver', () => {
 	test('true value', () => {
 		expect(
 			handleRaceOver([
-				{ distance: 3000 },
-				{ distance: 2000 },
+				{ distance: 1000 },
+				{ distance: 1000 },
+				{ distance: 1000 },
+				{ distance: 1000 },
+				{ distance: 1000 },
 				{ distance: 1000 },
 			])
 		).toEqual(true);
